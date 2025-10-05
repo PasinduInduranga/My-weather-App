@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Weather App 🌤</title>
-
+  <title>Interactive Weather App 🌤</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Leaflet Map CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+e2G7dJXzUg4hk1+PQX4t5hHWQ1Z5Y1CzRL1M6Q3s="
     crossorigin=""
   />
 </head>
@@ -27,7 +23,6 @@
       <button id="mapBtn">Select on Map</button>
     </div>
 
-    <!-- Weather card -->
     <div class="weather-card">
       <h2 id="location-name">Select a location</h2>
       <p><b>Latitude:</b> <span id="lat">--</span></p>
@@ -40,7 +35,7 @@
 
   <!-- Map Modal -->
   <div id="mapModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content map-wrapper">
       <span class="close">&times;</span>
       <h2>Select Location on Map</h2>
       <div id="map"></div>

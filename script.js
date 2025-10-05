@@ -4,9 +4,20 @@ const mapBtn = document.getElementById("mapBtn");
 const closeBtn = document.querySelector(".close");
 const confirmBtn = document.getElementById("closeMapBtn");
 
+// Initialize Leaflet map (before opening modal)
+const map = L.map("map", { zoomControl: true }).setView([6.9271, 79.8612], 7);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
+let marker = L.marker([6.9271, 79.8612]).addTo(map);
+
+// Modal open/close
 mapBtn.onclick = () => {
   modal.style.display = "block";
-  setTimeout(() => map.invalidateSize(), 200);
+  setTimeout(() => {
+    map.invalidateSize();
+    map.setView(marker.getLatLng(), map.getZoom());
+  }, 300);
 };
 
 closeBtn.onclick = () => (modal.style.display = "none");
@@ -15,13 +26,6 @@ confirmBtn.onclick = () => (modal.style.display = "none");
 window.onclick = (e) => {
   if (e.target == modal) modal.style.display = "none";
 };
-
-// Initialize Leaflet map
-const map = L.map("map").setView([6.9271, 79.8612], 7);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "&copy; OpenStreetMap contributors",
-}).addTo(map);
-let marker = L.marker([6.9271, 79.8612]).addTo(map);
 
 // Map click event
 map.on("click", (e) => {
@@ -81,7 +85,6 @@ async function fetchWeather(lat, lon) {
   }
 }
 
-// Format ISO time
 function formatTime(isoTime) {
   const date = new Date(isoTime);
   return date.toLocaleString("en-GB", {
@@ -92,7 +95,6 @@ function formatTime(isoTime) {
   });
 }
 
-// Render temperature chart
 function renderChart(times, temps) {
   const ctx = document.getElementById("tempChart").getContext("2d");
   if (window.tempChart) window.tempChart.destroy();
