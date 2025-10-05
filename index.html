@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Weather App 🌤</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet Map CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2G7dJXzUg4hk1+PQX4t5hHWQ1Z5Y1CzRL1M6Q3s="
+    crossorigin=""
+  />
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">🌎 Weather App</h1>
+
+    <div class="input-section">
+      <input type="number" step="any" id="latitude" placeholder="Latitude" />
+      <input type="number" step="any" id="longitude" placeholder="Longitude" />
+      <button id="fetchBtn">Get Weather</button>
+      <button id="mapBtn">Select on Map</button>
+    </div>
+
+    <!-- Weather card -->
+    <div class="weather-card">
+      <h2 id="location-name">Select a location</h2>
+      <p><b>Latitude:</b> <span id="lat">--</span></p>
+      <p><b>Longitude:</b> <span id="lon">--</span></p>
+      <h3 id="current-temp">-- °C</h3>
+      <p id="current-time">--</p>
+      <canvas id="tempChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Map Modal -->
+  <div id="mapModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Select Location on Map</h2>
+      <div id="map"></div>
+      <button id="closeMapBtn">Confirm Location</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

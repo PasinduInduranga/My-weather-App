@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app {
+  width: 100%;
+  max-width: 700px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.input-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  width: 130px;
+  text-align: center;
+}
+
+.input-section button {
+  background: white;
+  color: #2575fc;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.input-section button:hover {
+  background: #e0e0e0;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+#current-temp {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+canvas {
+  margin-top: 20px;
+  width: 100% !important;
+  height: 250px !important;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  color: #333;
+  text-align: center;
+}
+
+.close {
+  color: #333;
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+#closeMapBtn {
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .input-section input {
+    width: 100%;
+  }
+  .input-section button {
+    width: 100%;
+  }
+}
