@@ -132,3 +132,24 @@ function renderChart(times, temps) {
 
 // Default location (Colombo)
 fetchWeather(6.9271, 79.8612);
+
+// Dark Mode Toggle Logic
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// Check if dark mode is saved in localStorage
+if (localStorage.getItem('darkMode') === 'enabled') {
+  body.classList.add('dark-mode');
+}
+
+// Toggle dark mode when the button is clicked
+darkModeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+
+  // Save dark mode state to localStorage
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    localStorage.removeItem('darkMode');
+  }
+});
